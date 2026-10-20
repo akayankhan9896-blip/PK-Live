@@ -1,0 +1,90 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile document",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "bio": { "type": "string" },
+        "gender": { "type": "string" },
+        "age": { "type": "number" },
+        "userLevel": { "type": "number" },
+        "vipLevel": { "type": "number" },
+        "heartLevel": { "type": "number" },
+        "friendsCount": { "type": "number" },
+        "followingCount": { "type": "number" },
+        "followersCount": { "type": "number" },
+        "xcoins": { "type": "number" },
+        "diamonds": { "type": "number" },
+        "agencyName": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "username", "gender"]
+    },
+    "LiveRoom": {
+      "title": "LiveRoom",
+      "description": "Live stream broadcast room",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "hostId": { "type": "string" },
+        "hostName": { "type": "string" },
+        "title": { "type": "string" },
+        "viewerCount": { "type": "number" },
+        "isPkActive": { "type": "boolean" },
+        "fireCount": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "hostId", "hostName", "title"]
+    },
+    "PartyRoom": {
+      "title": "PartyRoom",
+      "description": "Voice party room",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "hostId": { "type": "string" },
+        "hostName": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "listenerCount": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "hostId", "title"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Chat message",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "senderId", "content"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profile documents"
+    },
+    "/live_rooms/{roomId}": {
+      "schema": { "$ref": "#/entities/LiveRoom" },
+      "description": "Active live broadcaster rooms"
+    },
+    "/party_rooms/{partyId}": {
+      "schema": { "$ref": "#/entities/PartyRoom" },
+      "description": "Active voice party rooms"
+    },
+    "/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/Message" },
+      "description": "User private and group messages"
+    }
+  }
+}

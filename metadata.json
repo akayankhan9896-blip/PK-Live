@@ -1,0 +1,6 @@
+{
+  "name": "PK LIVE",
+  "description": "PK LIVE - Premier Live Streaming, 1v1 PK Battles, Voice Party & Gifting Platform",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
